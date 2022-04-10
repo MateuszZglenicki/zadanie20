@@ -20,12 +20,12 @@ public class HelloController {
     User user3 = new User("Mariola", "Kaczyńska", 36);
 
     @RequestMapping("/add")
-    public String hello(@RequestParam String firstName, @RequestParam String lastName, @RequestParam Integer age) {
+    public String hello(@RequestParam String imie, @RequestParam String nazwisko, @RequestParam Integer wiek) {
 
-        if (firstName.equals("")) {
+        if (imie.equals("")) {
             return "redirect:/err.html";
         } else {
-            User user = new User(firstName, lastName, age);
+            User user = new User(imie, nazwisko, wiek);
             userRepository.add(user);
             return "redirect:/success.html";
         }
@@ -34,9 +34,9 @@ public class HelloController {
     @ResponseBody
     @RequestMapping("/users")
     public String list() {
-        userRepository.add(user1);
-        userRepository.add(user2);
-        userRepository.add(user3);
+//        userRepository.add(user1);
+//        userRepository.add(user2);
+//        userRepository.add(user3);
 
         List<User> userList = userRepository.getAll();
         String result = "";

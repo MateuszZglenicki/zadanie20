@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Dodawanie użytkownika</title>
+    <title>Formularz</title>
 </head>
 <body>
+<h1>Podaj dane do wprowadzenia:</h1>
 <form action="/add" method="post">
-    <input type="text" name="firstName" placeholder="Imię" />
-    <input type="text" name="lastName" placeholder="Nazwisko" />
-    <input type="number" name="age" placeholder="wiek" />
-    <input type="submit" value="Dodaj" />
+    <fieldset>
+        <legend>Podstawowe dane</legend>
+        <label for="firstName">Imię</label>
+        <input type="text" name="imie" id="firstName">
+        <label for="lastName">Nazwisko</label>
+        <input type="text" name="nazwisko" id="lastName">
+        <label for="age">wiek</label>
+        <input type="number" name="wiek" id="age">
+    </fieldset>
+    <input type="submit" value="Dodaj">
 </form>
 </body>
 </html>
