@@ -13,9 +13,6 @@ public class HelloController {
 
     public HelloController(UserRepository userRepository) {
         this.userRepository = userRepository;
-        userRepository.add(new User("Kamil", "Kowalski", 24));
-        userRepository.add(new User("Mateusz", "Solecki", 29));
-        userRepository.add(new User("Monika", "Nowak", 32));
     }
 
     @RequestMapping("/add")
