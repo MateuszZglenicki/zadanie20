@@ -1,4 +1,4 @@
-package pl.mateusz.zadanie_20;
+package pl.mateusz.zadanie20;
 
 import org.springframework.stereotype.Repository;
 
@@ -7,6 +7,7 @@ import java.util.List;
 
 @Repository
 public class UserRepository {
+
     private List<User> userList = new ArrayList<>();
 
     public List<User> getAll() {

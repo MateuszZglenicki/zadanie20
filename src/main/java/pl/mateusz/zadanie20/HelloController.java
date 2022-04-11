@@ -1,4 +1,4 @@
-package pl.mateusz.zadanie_20;
+package pl.mateusz.zadanie20;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +13,14 @@ public class HelloController {
 
     public HelloController(UserRepository userRepository) {
         this.userRepository = userRepository;
+        userRepository.add(new User("Kamil", "Kowalski", 24));
+        userRepository.add(new User("Mateusz", "Solecki", 29));
+        userRepository.add(new User("Monika", "Nowak", 32));
     }
 
-    User user1 = new User("Mateusz", "Solecki", 25);
-    User user2 = new User("Kamil", "Kowalski", 28);
-    User user3 = new User("Mariola", "Kaczyńska", 36);
-
     @RequestMapping("/add")
-    public String hello(@RequestParam String imie, @RequestParam String nazwisko, @RequestParam Integer wiek) {
+    public String hello(@RequestParam(required = false, defaultValue = "") String imie,
+                        @RequestParam String nazwisko, @RequestParam Integer wiek) {
 
         if (imie.equals("")) {
             return "redirect:/err.html";
@@ -34,10 +34,6 @@ public class HelloController {
     @ResponseBody
     @RequestMapping("/users")
     public String list() {
-//        userRepository.add(user1);
-//        userRepository.add(user2);
-//        userRepository.add(user3);
-
         List<User> userList = userRepository.getAll();
         String result = "";
         for (User user4 : userList) {

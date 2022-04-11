@@ -1,4 +1,4 @@
-package pl.mateusz.zadanie_20;
+package pl.mateusz.zadanie20;
 
 public class User {
     private String firstName;
